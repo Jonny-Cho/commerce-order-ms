@@ -27,9 +27,10 @@ public class OrderDto implements Serializable {
         this.userId = entity.getUserId();
     }
 
-    public OrderDto(final RequestOrder r) {
-        this.productId = r.getProductId();
-        this.qty = r.getQty();
-        this.unitPrice = r.getUnitPrice();
+    public OrderDto(final String userId, final RequestOrder requestOrder) {
+        this.productId = requestOrder.getProductId();
+        this.qty = requestOrder.getQty();
+        this.unitPrice = requestOrder.getUnitPrice();
+        this.userId = userId;
     }
 }

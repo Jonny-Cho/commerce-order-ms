@@ -22,7 +22,7 @@ public class OrderController {
 
     @GetMapping("/health_check")
     public String status() {
-        return String.format("It's Working in Order Service on PORT %s", env.getProperty("local.server.port"))
+        return String.format("It's Working in Order Service on PORT %s", env.getProperty("local.server.port"));
     }
 
     @PostMapping("/{userId}/orders")
@@ -30,7 +30,7 @@ public class OrderController {
         @PathVariable("userId") final String userId,
         @RequestBody final RequestOrder requestOrder) {
 
-        final OrderDto orderDto = new OrderDto(requestOrder);
+        final OrderDto orderDto = new OrderDto(userId, requestOrder);
         final OrderDto createdOrder = orderService.createOrder(orderDto);
         final ResponseOrder result = new ResponseOrder(createdOrder);
 
