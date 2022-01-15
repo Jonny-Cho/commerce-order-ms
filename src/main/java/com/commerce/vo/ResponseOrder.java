@@ -16,6 +16,7 @@ public class ResponseOrder {
     private Integer qty;
     private Integer unitPrice;
     private Integer totalPrice;
+    private String orderId;
     private Date createdAt;
 
     public ResponseOrder(final OrderEntity entity) {
@@ -24,6 +25,7 @@ public class ResponseOrder {
         this.unitPrice = entity.getUnitPrice();
         this.totalPrice = entity.getTotalPrice();
         this.createdAt = entity.getCreatedAt();
+        this.orderId = entity.getOrderId();
     }
 
     public ResponseOrder(final OrderDto d) {
@@ -31,6 +33,7 @@ public class ResponseOrder {
         this.qty = d.getQty();
         this.unitPrice = d.getUnitPrice();
         this.totalPrice = d.getTotalPrice();
+        this.orderId = d.getOrderId();
     }
 
     public static List<ResponseOrder> from(final List<OrderEntity> orderList) {

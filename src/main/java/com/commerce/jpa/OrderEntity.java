@@ -2,6 +2,7 @@ package com.commerce.jpa;
 
 import com.commerce.dto.OrderDto;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ import java.util.UUID;
 @Getter
 @Entity
 @Table(name = "orders")
+@NoArgsConstructor
 public class OrderEntity implements Serializable {
 
     @Id
@@ -43,4 +45,5 @@ public class OrderEntity implements Serializable {
         this.userId = orderDto.getUserId();
         this.orderId = UUID.randomUUID().toString();
     }
+
 }
